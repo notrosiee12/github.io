@@ -1,297 +1,187 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <!-- Primary Meta Tags -->
-    <title>Portfolio Template - Open source</title>
-    <meta name="title" content="Portfolio Template - Open source" />
-    <meta
-      name="description"
-      content="Build or customize your portfolio website using this super easy template. Free to use if you are a member of the community or a contributor to this project"
-    />
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>My Portfolio</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    body { font-family: 'Inter', sans-serif; }
+    .project-card { transition: all 0.3s ease; }
+    .project-card:hover { transform: translateY(-6px) scale(1.02); }
+    .gradient-text {
+      background: linear-gradient(90deg, #60a5fa, #a78bfa, #ec4899);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+  </style>
+</head>
+<body class="bg-gray-950 text-gray-200 tracking-tight">
 
-    <!-- Open Graph / Facebook -->
-    <meta property="og:type" content="website" />
-    <meta
-      property="og:url"
-      content="https://github.com/CommunityPro/portfolio-html"
-    />
-    <meta property="og:title" content="Portfolio Template - Open source" />
-    <meta
-      property="og:description"
-      content="Build or customize your portfolio website using this super easy template. Free to use if you are a member of the community or a contributor to this project"
-    />
-    <meta
-      property="og:image"
-      content="https://user-images.githubusercontent.com/62628408/150613011-b78a7f5a-0af1-4312-aab0-0022e7258693.png"
-    />
+  <!-- Header -->
+  <header class="bg-gray-900 shadow-lg sticky top-0 z-50">
+    <nav class="container mx-auto px-6 py-4 flex justify-between items-center">
+      <h1 class="text-3xl font-extrabold gradient-text">My Portfolio</h1>
+      <div class="hidden md:flex space-x-8 text-sm font-medium">
+        <a href="#about" class="hover:text-purple-400 transition">About</a>
+        <a href="#projects" class="hover:text-purple-400 transition">Projects</a>
+        <a href="#resume" class="hover:text-purple-400 transition">Resume</a>
+        <a href="#contact" class="hover:text-purple-400 transition">Contact</a>
+      </div>
+      <button id="mobile-menu-toggle" class="md:hidden">
+        <svg class="w-6 h-6 text-gray-200" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"/>
+        </svg>
+      </button>
+    </nav>
+    <div id="mobile-menu" class="hidden md:hidden flex-col bg-gray-900 border-t border-gray-700 px-6 py-4 space-y-2">
+      <a href="#about" class="hover:text-purple-400">About</a>
+      <a href="#projects" class="hover:text-purple-400">Projects</a>
+      <a href="#resume" class="hover:text-purple-400">Resume</a>
+      <a href="#contact" class="hover:text-purple-400">Contact</a>
+    </div>
+  </header>
 
-    <!-- Twitter -->
-    <meta property="twitter:card" content="summary_large_image" />
-    <meta
-      property="twitter:url"
-      content="https://github.com/CommunityPro/portfolio-html"
-    />
-    <meta property="twitter:title" content="Portfolio Template - Open source" />
-    <meta
-      property="twitter:description"
-      content="Build or customize your portfolio website using this super easy template. Free to use if you are a member of the community or a contributor to this project"
-    />
-    <meta
-      property="twitter:image"
-      content="https://user-images.githubusercontent.com/62628408/150613011-b78a7f5a-0af1-4312-aab0-0022e7258693.png"
-    />
-
-    <!-- Link -->
-    <link
-      rel="apple-touch-icon"
-      sizes="180x180"
-      href="assets/favicon/apple-touch-icon.png"
-    />
-    <link
-      rel="icon"
-      type="image/png"
-      sizes="16x16"
-      href="/assets/favicon/favicon-16x16.png"
-    />
-    <link
-      rel="icon"
-      type="image/png"
-      sizes="32x32"
-      href="assets/favicon/favicon-32x32.png"
-    />
-    <link
-      rel="icon"
-      type="image/png"
-      sizes="192x192"
-      href="assets/favicon/android-chrome-192x192.png"
-    />
-    <link
-      rel="icon"
-      type="image/png"
-      sizes="512x512"
-      href="assets/favicon/android-chrome-512x512.png"
-    />
-    <link rel="icon" type="image/x-icon" href="assets/favicon/favicon.ico" />
-    <link rel="manifest" href="assets/favicon/site.webmanifest" />
-    <link
-      rel="stylesheet"
-      href="https://use.fontawesome.com/releases/v5.15.4/css/all.css"
-      integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm"
-      crossorigin="anonymous"
-    />
-    <link rel="stylesheet" href="css/style.css" />
-    <link rel="stylesheet" href="css/utilities.css" />
-  </head>
-  <body>
-    <header id="hero">
-      <!-- Navbar -->
-      <nav class="navbar">
-        <div class="container">
-          <!-- Logo -->
-          <h1 id="logo">
-            <a href="https://github.com/CommunityPro/portfolio-html"
-              ><img src="./assets/logo.png" alt="Your Logo"
-            /></a>
-          </h1>
-          <!-- Navbar links -->
-          <ul class="nav-menu">
-            <li><a class="nav-link" href="#projects">PROJECTS</a></li>
-            <li><a class="nav-link" href="#">CONTACT</a></li>
-            <li><a class="nav-link" href="#">BlOG</a></li>
-            <li>
-              <a
-                class="nav-link btn btn-primary"
-                href="https://github.com/CommunityPro/portfolio-html"
-                >RESUME <i class="fas fa-arrow-right"></i
-              ></a>
-            </li>
-
-            <!-- Toggle switch -->
-            <div class="theme-switch">
-              <input type="checkbox" id="switch" />
-              <label class="toggle-icons" for="switch">
-                <img class="moon" src="assets/moon.svg" />
-                <img class="sun" src="assets/sun.svg" />
-              </label>
+  <!-- About Section -->
+  <section id="about" class="section py-24 bg-gradient-to-r from-indigo-700 via-purple-700 to-pink-700 text-white">
+    <div class="container mx-auto px-6 text-center">
+      <div class="max-w-5xl mx-auto">
+        <div class="flex flex-col lg:flex-row items-center lg:justify-between">
+          <div class="lg:w-1/2 mb-10 lg:mb-0">
+            <h2 class="text-5xl font-extrabold mb-6 leading-tight">About Me</h2>
+            <p class="text-lg leading-relaxed mb-8 opacity-90">
+              I am a Computer Engineering student driven by a passion for technology and innovation. 
+              My interests span hardware-software integration, embedded systems, IoT, and system design. 
+              I enjoy applying engineering principles to create practical solutions that address real-world challenges. 
+              With a mindset for continuous learning, I aim to build impactful projects that combine creativity, functionality, and expertise.
+            </p>
+            <div class="bg-white/10 rounded-lg p-6 backdrop-blur-sm">
+              <h3 class="text-2xl font-bold mb-4">Core Skills</h3>
+              <div class="grid grid-cols-2 gap-4 text-left">
+                <ul class="space-y-2">
+                  <li>⚡ Circuit Design & Prototyping</li>
+                  <li>⚡ Embedded Systems</li>
+                  <li>⚡ Database Management (MySQL, phpMyAdmin)</li>
+                </ul>
+                <ul class="space-y-2">
+                  <li>⚡ Problem-Solving & Analytical Thinking</li>
+                  <li>⚡ Internet of Things (IoT) Development</li>
+                  <li>⚡ Research Writing & Documentation</li>
+                </ul>
+              </div>
             </div>
-            <!-- Hamburger menu -->
-          </ul>
-          <div class="hamburger">
-            <span class="bar"></span>
-            <span class="bar"></span>
-            <span class="bar"></span>
+          </div>
+          <div class="lg:w-1/2">
+            <img src="./assets/project/pictureid.png" alt="Portrait" class="rounded-full shadow-2xl w-80 h-80 mx-auto object-cover border-4 border-white/20"/>
           </div>
         </div>
-      </nav>
+      </div>
+    </div>
+  </section>
 
-      <section class="header-container">
-        <img
-          class="profile-image"
-          src="assets/profile-image.svg"
-          alt=""
-        />
-        <h1>Hi I'm Franklin</h1>
-
-        <div class="content-text">
-          <h2>Building digital</h2>
-          <h2>products, brands, and experience.</h2>
-
-          <p>
-            A Frontend Developer and Visual Designer with experience in web
-            design, brand identity and product design.
+  <!-- Projects -->
+  <section id="projects" class="section py-24 bg-gray-900">
+    <div class="container mx-auto px-6">
+      <h2 class="text-5xl font-extrabold text-center mb-16 text-white">Featured Project</h2>
+      <div class="max-w-xl mx-auto bg-gray-800 rounded-xl shadow-lg overflow-hidden project-card">
+        <img src="./assets/project/project1.png" class="w-full h-56 object-cover"/>
+        <div class="p-8">
+          <h3 class="text-2xl font-bold mb-4 text-white">Danggitech Fish Drying Website</h3>
+          <p class="text-gray-300 leading-relaxed">
+            A smart drying system website designed for monitoring and controlling the drying process using IoT and embedded systems.
           </p>
         </div>
-        <a
-          href="https://github.com/CommunityPro/portfolio-html"
-          class="btn btn-secondary"
-          target="_blank"
-          >Connect With Me</a
-        >
-      </section>
-    </header>
-
-    <!-- Projects -->
-    <section id="projects" class="project-container container">
-      <div class="division"></div>
-      <div class="content-text">
-        <h2>Projects</h2>
-        <p>Check out some of my personal and paid projects</p>
       </div>
+    </div>
+  </section>
 
-      <article class="project">
-        <!-- Project 1 -->
-        <div href="" class="card">
-          <div class="project-info">
-            <div class="project-bio">
-              <h3>Project One</h3>
-              <p>React, Redux, SASS</p>
-            </div>
-
-            <div class="project-link">
-              <a href="#" target="_blank"><i class="fab fa-github"></i></a>
-              <a href="#" target="_blank"><i class="fas fa-globe"></i></a>
-            </div>
-          </div>
-        </div>
-
-        <!-- Project 2 -->
-        <div href="" class="card">
-          <div class="project-info">
-            <div class="project-bio">
-              <h3>Project Two</h3>
-              <p>React, Redux, SASS</p>
-            </div>
-
-            <div class="project-link">
-              <a href="#" target="_blank"><i class="fab fa-github"></i></a>
-              <a href="#" target="_blank"><i class="fas fa-globe"></i></a>
-            </div>
-          </div>
-        </div>
-
-        <!-- Porject 3 -->
-        <div href="" class="card">
-          <div class="project-info">
-            <div class="project-bio">
-              <h3>Project Three</h3>
-              <p>React, Redux, SASS</p>
-            </div>
-
-            <div class="project-link">
-              <a href="#" target="_blank"><i class="fab fa-github"></i></a>
-              <a href="#" target="_blank"><i class="fas fa-globe"></i></a>
-            </div>
-          </div>
-        </div>
-
-        <!-- Project 4 -->
-        <div href="" class="card">
-          <div class="project-info">
-            <div class="project-bio">
-              <h3>Project Four</h3>
-              <p>React, Redux, SASS</p>
-            </div>
-
-            <div class="project-link">
-              <a href="#" target="_blank"><i class="fab fa-github"></i></a>
-              <a href="#" target="_blank"><i class="fas fa-globe"></i></a>
-            </div>
-          </div>
-        </div>
-
-        <!-- Project 5 -->
-        <div href="" class="card">
-          <div class="project-info">
-            <div class="project-bio">
-              <h3>Project Five</h3>
-              <p>React, Redux, SASS</p>
-            </div>
-
-            <div class="project-link">
-              <a href="#" target="_blank"><i class="fab fa-github"></i></a>
-              <a href="#" target="_blank"><i class="fas fa-globe"></i></a>
-            </div>
-          </div>
-        </div>
-
-        <!-- Project 6 -->
-        <div href="" class="card">
-          <div class="project-info">
-            <div class="project-bio">
-              <h3>Project Six</h3>
-              <p>React, Redux, SASS</p>
-            </div>
-
-            <div class="project-link">
-              <a href="#" target="_blank"><i class="fab fa-github"></i></a>
-              <a href="#" target="_blank"><i class="fas fa-globe"></i></a>
-            </div>
-          </div>
-        </div>
-      </article>
-
-      <a href="#" class="btn btn-secondary"
-        target="_blank" >See More <i class="fas fa-arrow-right"></i
-      ></a>
-    </section>
-
-    <footer id="footer">
-      <div class="container">
-        <a href="mailto:communitypro47@gmail.com">communitypro47@gmail.com</a>
-        <!-- Social links -->
-        <div class="social">
-          <a href="#" target="_blank"
-            ><img src="./assets/facebook-icon.svg" alt="Facebook"
-          /></a>
-          <a href="#" target="_blank"><img src="./assets/twitter-icon.svg" alt="Twitter" /></a>
-          <a href="#" target="_blank"
-            ><img src="./assets/linkedin-icon.svg" alt="Linkedin"
-          /></a>
-          <a href="#" target="_blank"><img src="./assets/github-icon.svg" alt="GitHub" /></a>
-          <a href="#" target="_blank"
-            ><img src="./assets/hashnode-icon.svg" alt="Hashnode"
-          /></a>
-        </div>
-        <!-- Attribution -->
-        <div class="attribution">
-          <a
-            href="https://github.com/CommunityPro/portfolio-html"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <img
-              src="https://user-images.githubusercontent.com/62628408/157202263-9174da24-b19a-4017-9b7c-a1d26ae8f014.svg"
-              alt="attribution"
-              width="150px"
-            />
+  <!-- Resume -->
+  <section id="resume" class="section py-24 bg-gray-950">
+    <div class="container mx-auto px-6 text-center">
+      <h2 class="text-5xl font-extrabold mb-12 text-white">Resume & CV</h2>
+      <div class="max-w-2xl mx-auto">
+        <div class="bg-gray-800 rounded-xl shadow-lg p-8">
+          <img src="./assets/project/resume.png" alt="Resume Preview" class="w-full h-96 object-cover rounded-lg mb-6"/>
+          <p class="text-gray-300 mb-8 text-lg">Download my full CV to learn more about my professional journey, achievements, and qualifications.</p>
+          <a href="https://drive.google.com/file/d/1CCq3VW8UkKhRKzNOOoukAa5Zsv1FKt6v/view?usp=sharing" class="inline-block bg-gradient-to-r from-green-400 to-blue-500 text-white px-8 py-4 rounded-full font-bold text-lg hover:from-green-500 hover:to-blue-600 transition duration-300 shadow-lg" target="_blank">
+            📄 Download Resume
           </a>
         </div>
-        <p>Copyright &copy; Communitypro <span id="datee"></span>, All rights reserved</p>
       </div>
-    </footer>
-    <script src="js/script.js"></script>
-  </body>
+    </div>
+  </section>
+
+  <!-- Contact -->
+  <section id="contact" class="section py-24 bg-gray-900">
+    <div class="container mx-auto px-6">
+      <h2 class="text-5xl font-extrabold text-center mb-16 text-white">Get In Touch</h2>
+      <div class="max-w-4xl mx-auto">
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <div class="text-center bg-gray-800 rounded-xl p-8 shadow-md hover:shadow-lg transition">
+            <div class="text-4xl mb-4">📧</div>
+            <h3 class="text-xl font-bold mb-2 text-white">Email</h3>
+            <p class="text-gray-400">linga.maryrose@marsu.edu.ph</p>
+            <a href="https://mail.google.com/mail/u/" class="text-purple-400 hover:text-purple-300 mt-2 inline-block">Send Email</a>
+          </div>
+          <div class="text-center bg-gray-800 rounded-xl p-8 shadow-md hover:shadow-lg transition">
+            <div class="text-4xl mb-4">💼</div>
+            <h3 class="text-xl font-bold mb-2 text-white">LinkedIn</h3>
+            <p class="text-gray-400">Connect professionally</p>
+            <a href="https://www.linkedin.com/in/mary-rosecl" class="text-purple-400 hover:text-purple-300 mt-2 inline-block" target="_blank">Visit Profile</a>
+          </div>
+          <div class="text-center bg-gray-800 rounded-xl p-8 shadow-md hover:shadow-lg transition">
+            <div class="text-4xl mb-4">🐱</div>
+            <h3 class="text-xl font-bold mb-2 text-white">GitHub</h3>
+            <p class="text-gray-400">Check out my code</p>
+            <a href="https://github.com/notrosiee12" class="text-purple-400 hover:text-purple-300 mt-2 inline-block" target="_blank">View Repositories</a>
+          </div>
+        </div>
+        <div class="text-center mt-12">
+          <p class="text-gray-400 text-lg mb-6">Have a project in mind? Let's collaborate!</p>
+          <button class="bg-gradient-to-r from-purple-600 to-pink-600 text-white px-8 py-4 rounded-full font-bold text-lg hover:from-purple-700 hover:to-pink-700 transition duration-300 shadow-lg">
+            Start a Conversation
+          </button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="bg-gray-950 text-gray-400 py-8">
+    <div class="container mx-auto px-6 text-center">
+      <p class="text-sm">© 2025 My Portfolio.</p>
+    </div>
+  </footer>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      const toggleButton = document.getElementById('mobile-menu-toggle');
+      const mobileMenu = document.getElementById('mobile-menu');
+      toggleButton.addEventListener('click', function() {
+        mobileMenu.classList.toggle('hidden');
+      });
+
+      // Smooth scroll
+      document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+          e.preventDefault();
+          document.querySelector(this.getAttribute('href')).scrollIntoView({
+            behavior: 'smooth'
+          });
+          if (mobileMenu.classList.contains('md:hidden')) {
+            mobileMenu.classList.add('hidden');
+          }
+        });
+      });
+
+      // Contact button
+      const contactBtn = document.querySelector('#contact button');
+      if (contactBtn) {
+        contactBtn.addEventListener('click', function() {
+          alert('Thanks for your interest! Please reach out via email or LinkedIn.');
+        });
+      }
+    });
+  </script>
+</body>
 </html>
